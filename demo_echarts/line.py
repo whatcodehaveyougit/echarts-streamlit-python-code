@@ -3,7 +3,7 @@ from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
 
 
-def render_basic_line_chart():
+def render_double_x_axis_chart():
     # Hello Sigurd
     option = {
         # "xAxis": {
@@ -258,8 +258,8 @@ def render_line_race():
 
 
 ST_LINE_DEMOS = {
-    "Line: Basic Line Chart": (
-        render_basic_line_chart,
+    "Double X Axis Chart": (
+        render_double_x_axis_chart,
         "https://echarts.apache.org/examples/en/editor.html?c=line-simple",
     ),
     "Line: Basic Area Chart": (
