@@ -78,12 +78,12 @@ def render_anscombe_quartet():
 
     see_results_from_this_day = st.selectbox(
         'Select the first day you want to see results from',
-        ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
+        ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
     st.write('You selected:', see_results_from_this_day)
     
     see_results_until_this_day = st.selectbox(
         'Select the last day you want to see results from',
-        ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
+        ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
     st.write('You selected:', see_results_until_this_day)
 
 
@@ -127,10 +127,17 @@ def render_anscombe_quartet():
         ],
     ]
 
-    if see_results_until_this_day == "Friday": 
-        days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri"]
-    else: 
-        days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    days_of_the_week_to_show = []
+    for day in days_of_the_week:
+        if day != see_results_until_this_day:
+             days_of_the_week_to_show.append( day )
+        else:
+            days_of_the_week_to_show.append( day )
+            break
+
+
+
 
     line_opt = {
         "animation": False,
@@ -152,10 +159,10 @@ def render_anscombe_quartet():
         ],
         "tooltip": {"formatter": "Group {a}: ({c})"},
         "xAxis": [
-            { "gridIndex": 0, "type": "category", "data": days_of_the_week },
-            { "gridIndex": 1, "type": "category", "data": days_of_the_week },
-            { "gridIndex": 2, "type": "category", "data": days_of_the_week },
-            { "gridIndex": 3, "type": "category", "data": days_of_the_week }
+            { "gridIndex": 0, "type": "category", "data": days_of_the_week_to_show },
+            { "gridIndex": 1, "type": "category", "data": days_of_the_week_to_show },
+            { "gridIndex": 2, "type": "category", "data": days_of_the_week_to_show },
+            { "gridIndex": 3, "type": "category", "data": days_of_the_week_to_show }
         ],
         "yAxis": [
             { "gridIndex": 0, "type": "value"},
