@@ -76,15 +76,15 @@ def main():
 
 def render_anscombe_quartet():
 
-    option = st.selectbox(
+    see_results_from_this_day = st.selectbox(
         'Select the first day you want to see results from',
         ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
-    st.write('You selected:', option)
+    st.write('You selected:', see_results_from_this_day)
     
-    option = st.selectbox(
+    see_results_until_this_day = st.selectbox(
         'Select the last day you want to see results from',
         ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
-    st.write('You selected:', option)
+    st.write('You selected:', see_results_until_this_day)
 
 
 
@@ -127,6 +127,11 @@ def render_anscombe_quartet():
         ],
     ]
 
+    if see_results_until_this_day == "Friday": 
+        days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+    else: 
+        days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
     line_opt = {
         "animation": False,
         "label": {"formatter": "y = 0.5 * x + 3", "align": "right"},
@@ -147,10 +152,10 @@ def render_anscombe_quartet():
         ],
         "tooltip": {"formatter": "Group {a}: ({c})"},
         "xAxis": [
-            { "gridIndex": 0, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
-            { "gridIndex": 1, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
-            { "gridIndex": 2, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
-            { "gridIndex": 3, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], }
+            { "gridIndex": 0, "type": "category", "data": days_of_the_week },
+            { "gridIndex": 1, "type": "category", "data": days_of_the_week },
+            { "gridIndex": 2, "type": "category", "data": days_of_the_week },
+            { "gridIndex": 3, "type": "category", "data": days_of_the_week }
         ],
         "yAxis": [
             { "gridIndex": 0, "type": "value"},
