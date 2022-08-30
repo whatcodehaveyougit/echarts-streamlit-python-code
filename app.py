@@ -130,6 +130,11 @@ def render_anscombe_quartet():
     days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     days_of_the_week_to_show = []
     for day in days_of_the_week:
+        if ( ( day != see_results_from_this_day ) and ( len( days_of_the_week_to_show ) == 0 ) ):
+            continue
+        if len( days_of_the_week_to_show ) == 0: 
+            days_of_the_week_to_show.append( day )
+            continue
         if day != see_results_until_this_day:
              days_of_the_week_to_show.append( day )
         else:
