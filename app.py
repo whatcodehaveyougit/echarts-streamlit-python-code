@@ -13,12 +13,6 @@ from streamlit_echarts import st_echarts
 def main():
     st.title("Streamlit ECharts Demooo")
 
-    option = st.selectbox(
-         'How would you like to be contacted?',
-         ('Email', 'Home phone', 'Mobile phone'))
-
-    st.write('You selected:', option)
-
     # with st.sidebar:
     #     st.header("Configuration")
         # api_options = ("echarts", "pyecharts")
@@ -81,58 +75,55 @@ def main():
 
 
 def render_anscombe_quartet():
+
+    option = st.selectbox(
+        'Select the first day you want to see results from',
+        ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
+    st.write('You selected:', option)
+    
+    option = st.selectbox(
+        'Select the last day you want to see results from',
+        ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
+    st.write('You selected:', option)
+
+
+
     data = [
         [
-            [10.0, 8.04],
-            [8.0, 6.95],
-            [13.0, 7.58],
-            [9.0, 8.81],
-            [11.0, 8.33],
-            [14.0, 9.96],
-            [6.0, 7.24],
-            [4.0, 4.26],
-            [12.0, 10.84],
-            [7.0, 4.82],
-            [5.0, 5.68],
+            120,
+            100,
+            150,
+            80,
+            70,
+            40,
+            100,
         ],
         [
-            [10.0, 9.14],
-            [8.0, 8.14],
-            [13.0, 8.74],
-            [9.0, 8.77],
-            [11.0, 9.26],
-            [14.0, 8.10],
-            [6.0, 6.13],
-            [4.0, 3.10],
-            [12.0, 9.13],
-            [7.0, 7.26],
-            [5.0, 4.74],
+            160,
+            200,
+            123,
+            80,
+            70,
+            8,
+            130,
         ],
         [
-            [10.0, 7.46],
-            [8.0, 6.77],
-            [13.0, 12.74],
-            [9.0, 7.11],
-            [11.0, 7.81],
-            [14.0, 8.84],
-            [6.0, 6.08],
-            [4.0, 5.39],
-            [12.0, 8.15],
-            [7.0, 6.42],
-            [5.0, 5.73],
+            50,
+            150,
+            150,
+            45,
+            40,
+            10,
+            80,
         ],
         [
-            [8.0, 6.58],
-            [8.0, 5.76],
-            [8.0, 7.71],
-            [8.0, 8.84],
-            [8.0, 8.47],
-            [8.0, 7.04],
-            [8.0, 5.25],
-            [19.0, 12.50],
-            [8.0, 5.56],
-            [8.0, 7.91],
-            [8.0, 6.89],
+            90,
+            180,
+            150,
+            85,
+            40,
+            10,
+            130,
         ],
     ]
 
@@ -156,49 +147,45 @@ def render_anscombe_quartet():
         ],
         "tooltip": {"formatter": "Group {a}: ({c})"},
         "xAxis": [
-            {"gridIndex": 0, "min": 0, "max": 20},
-            {"gridIndex": 1, "min": 0, "max": 20},
-            {"gridIndex": 2, "min": 0, "max": 20},
-            {"gridIndex": 3, "min": 0, "max": 20},
+            { "gridIndex": 0, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
+            { "gridIndex": 1, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
+            { "gridIndex": 2, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], },
+            { "gridIndex": 3, "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], }
         ],
         "yAxis": [
-            {"gridIndex": 0, "min": 0, "max": 15},
-            {"gridIndex": 1, "min": 0, "max": 15},
-            {"gridIndex": 2, "min": 0, "max": 15},
-            {"gridIndex": 3, "min": 0, "max": 15},
+            { "gridIndex": 0, "type": "value"},
+            { "gridIndex": 1, "type": "value"},
+            { "gridIndex": 2, "type": "value"},
+            { "gridIndex": 3, "type": "value"}
         ],
         "series": [
-            {
+              {
                 "name": "I",
-                "type": "scatter",
                 "xAxisIndex": 0,
                 "yAxisIndex": 0,
                 "data": data[0],
-                "markLine": line_opt,
+                "type": "bar",
             },
-            {
-                "name": "II",
-                "type": "scatter",
+           {
+                "name": "2",
                 "xAxisIndex": 1,
                 "yAxisIndex": 1,
                 "data": data[1],
-                "markLine": line_opt,
+                "type": "bar",
             },
             {
-                "name": "III",
-                "type": "scatter",
+                "name": "3",
                 "xAxisIndex": 2,
                 "yAxisIndex": 2,
                 "data": data[2],
-                "markLine": line_opt,
+                "type": "bar",
             },
             {
-                "name": "IV",
-                "type": "scatter",
+                "name": "4",
                 "xAxisIndex": 3,
                 "yAxisIndex": 3,
                 "data": data[3],
-                "markLine": line_opt,
+                "type": "bar",
             },
         ],
     }
