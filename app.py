@@ -76,15 +76,25 @@ def main():
 
 def render_anscombe_quartet():
 
-    see_results_from_this_day = st.selectbox(
-        'Select the first day you want to see results from',
-        ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
-    st.write('You selected:', see_results_from_this_day)
+    # see_results_from_this_day = st.selectbox(
+    #     'Select the first day you want to see results from',
+    #     ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
+    # st.write('You selected:', see_results_from_this_day)
     
-    see_results_until_this_day = st.selectbox(
-        'Select the last day you want to see results from',
-        ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
-    st.write('You selected:', see_results_until_this_day)
+    # see_results_until_this_day = st.selectbox(
+    #     'Select the last day you want to see results from',
+    #     ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'))
+    # st.write('You selected:', see_results_until_this_day)
+
+    days_of_week_for_slider = 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
+
+    see_results_from_this_day, see_results_until_this_day = st.select_slider(
+        "Slider Range:",
+        options=days_of_week_for_slider,
+        value=("Tue", "Sat")
+    )
+
+    st.write( "You choose: ", see_results_from_this_day, "to", see_results_until_this_day )
 
 
 
