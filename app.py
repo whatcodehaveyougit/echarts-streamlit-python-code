@@ -237,10 +237,15 @@ def render_basic_bar():
         "yAxis": {"type": "value"},
         "series": [{"data": [120, 200, 150, 80, 70, 110, 130], "type": "bar"}],
         "dataZoom": [{
-            "type": 'inside',
-            "xAxisIndex": 0,
-            "filterMode": 'weakFilter',
-        }]
+                "type": 'inside',
+                "start": 0,
+                "end": 10
+                },
+                {
+                "start": 0,
+                "end": 10
+                }
+            ]
     }
     st_echarts(options=options, height="500px")
 
