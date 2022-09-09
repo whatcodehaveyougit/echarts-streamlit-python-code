@@ -74,7 +74,7 @@ def main():
 #         )
 
 
-def render_anscombe_quartet():
+def render_andys_graph_quartet():
 
     # see_results_from_this_day = st.selectbox(
     #     'Select the first day you want to see results from',
@@ -91,7 +91,7 @@ def render_anscombe_quartet():
     see_results_from_this_day, see_results_until_this_day = st.select_slider(
         "Slider Range:",
         options=days_of_week_for_slider,
-        value=("Tue", "Sat")
+        value=("Mon", "Sun")
     )
 
     st.write( "You choose: ", see_results_from_this_day, "to", see_results_until_this_day )
@@ -185,11 +185,6 @@ def render_anscombe_quartet():
             { "gridIndex": 2, "type": "value"},
             { "gridIndex": 3, "type": "value"}
         ],
-          "dataZoom": [{
-            "type": 'inside',
-            "xAxisIndex": [0, 1, 2, 3],
-            "filterMode": 'weakFilter',
-        }],
         "series": [
               {
                 "name": "I",
