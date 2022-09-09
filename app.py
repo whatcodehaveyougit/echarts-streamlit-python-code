@@ -219,3 +219,24 @@ def render_anscombe_quartet():
     st_echarts(options=option, height="600px")
 
 render_anscombe_quartet()
+
+
+# --------------------------- NEW FUNCTION -------------------------------
+
+def render_basic_bar():
+    options = {
+        "xAxis": {
+            "type": "category",
+            "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        },
+        "yAxis": {"type": "value"},
+        "series": [{"data": [120, 200, 150, 80, 70, 110, 130], "type": "bar"}],
+        "dataZoom": [{
+            "type": 'inside',
+            "xAxisIndex": 0,
+            "filterMode": 'weakFilter',
+        }]
+    }
+    st_echarts(options=options, height="500px")
+
+render_basic_bar()
