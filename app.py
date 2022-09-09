@@ -185,6 +185,11 @@ def render_anscombe_quartet():
             { "gridIndex": 2, "type": "value"},
             { "gridIndex": 3, "type": "value"}
         ],
+          "dataZoom": [{
+            "type": 'inside',
+            "xAxisIndex": [0, 1, 2, 3],
+            "filterMode": 'weakFilter',
+        }],
         "series": [
               {
                 "name": "I",
